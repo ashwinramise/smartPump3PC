@@ -1,0 +1,14 @@
+[Unit]
+After=network.target
+Description=Start Smart Pump service
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /root/smartPump3PC/EdgeConnectWriter.py
+RestartSec=5s
+User=root
+
+[Install]
+WantedBy=multi-user.target
